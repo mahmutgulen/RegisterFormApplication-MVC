@@ -1,4 +1,14 @@
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using RFA.BLL.DependencyResolvers.Autofac;
+
 var builder = WebApplication.CreateBuilder(args);
+//Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(builder =>
+    {
+        builder.RegisterModule(new AutofacBusinessModule());
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Register}/{action=Index}/{id?}");
 
 app.Run();
