@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using RFA.DAL.Abstract;
+using RFA.DAL.Concrete;
 
 namespace RFA.BLL.DependencyResolvers.Autofac
 {
@@ -6,7 +8,8 @@ namespace RFA.BLL.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<RegistrationInfoDal>().As<IRegistrationInfoDal>();
+            builder.RegisterType<PaymentInfoDal>().As<IPaymentInfosDal>();
         }
     }
 }
