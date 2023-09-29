@@ -69,41 +69,89 @@ namespace RFA.BLL.Concrete
         {
             try
             {
-                double fee = 0;
-
+                double totalFee = 0;
+                double accommodationFee = 0;
                 //REGISTRATION TYPE
                 switch (dto.RegistrationType)
                 {
                     case 1:
-                        fee = 519.20;
+                        totalFee = 519.20;
                         break;
                     case 2:
-                        fee = 678.50;
+                        totalFee = 678.50;
                         break;
                     case 3:
-                        fee = 584.10;
+                        totalFee = 584.10;
                         break;
                     case 4:
-                        fee = 247.80;
+                        totalFee = 247.80;
                         break;
                     case 5:
-                        fee = 413.00;
+                        totalFee = 413.00;
                         break;
                     case 6:
-                        fee = 224.20;
+                        totalFee = 224.20;
                         break;
                 }
                 //GALA TYPE
                 switch (dto.GalaType)
                 {
                     case (int)GalaTypeEnum.No:
-                        fee += 0;
+                        totalFee += 0;
                         break;
                     case (int)GalaTypeEnum.Yes:
-                        fee += 106.20;
+                        totalFee += 106.20;
                         break;
                 }
+                //DATE 
+                var accommodationDay = dto.CheckInDate.Day - dto.CheckOutDate.Day;
+                //ACCOMMODATION TYPE
+                switch (dto.AccommodationType)
+                {
+                    case (int)AccommodationTypeEnum.No:
+                        accommodationFee += 0;
+                        break;
 
+                    case (int)AccommodationTypeEnum.OnePerson:
+                        accommodationFee += 356.00;
+                        break;
+
+                    case (int)AccommodationTypeEnum.TwoPerson:
+                        accommodationFee += 395.00;
+                        break;
+                }
+                accommodationFee *= accommodationDay;
+                totalFee += accommodationFee;
+                //COMPANİON GALA TYPE
+                switch (dto.CompanionGalaType)
+                {
+                    case (int)CompanionGalaType.No:
+                        totalFee += 0;
+                        break;
+                    case (int)CompanionGalaType.Yes:
+                        totalFee += 129.80;
+                        break;
+                }
+                //PRE COURSE
+                switch (dto.PreCourseType)
+                {
+                    case (int)PreCourseTypeEnum.No:
+                        totalFee += 0;
+                        break;
+                    case (int)PreCourseTypeEnum.Yes:
+                        totalFee += 271.40;
+                        break;
+                }
+                //POST COURSE
+                switch (dto.PreCourseType)
+                {
+                    case (int)PostCourseTypeEnum.No:
+                        totalFee += 0;
+                        break;
+                    case (int)PostCourseTypeEnum.Yes:
+                        totalFee += 271.40;
+                        break;
+                }
 
             }
             catch (Exception e)
