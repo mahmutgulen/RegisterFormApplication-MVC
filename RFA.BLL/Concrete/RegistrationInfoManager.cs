@@ -69,28 +69,33 @@ namespace RFA.BLL.Concrete
         {
             try
             {
-                double totalFee = 0;
-                double accommodationFee = 0;
+                double accommodationFee = 0, courseFee = 0, discount = 0, galaFee = 106.20, participationFee = 0, totalFee = 0;
                 //REGISTRATION TYPE
                 switch (dto.RegistrationType)
                 {
                     case 1:
                         totalFee = 519.20;
+                        participationFee += 519.20;
                         break;
                     case 2:
                         totalFee = 678.50;
+                        participationFee += 678.50;
                         break;
                     case 3:
                         totalFee = 584.10;
+                        participationFee += 584.10;
                         break;
                     case 4:
                         totalFee = 247.80;
+                        participationFee += 247.8;
                         break;
                     case 5:
                         totalFee = 413.00;
+                        participationFee += 413.00;
                         break;
                     case 6:
                         totalFee = 224.20;
+                        participationFee += 224.20;
                         break;
                 }
                 //GALA TYPE
@@ -100,7 +105,7 @@ namespace RFA.BLL.Concrete
                         totalFee += 0;
                         break;
                     case (int)GalaTypeEnum.Yes:
-                        totalFee += 106.20;
+                        totalFee += galaFee;
                         break;
                 }
                 //DATE 
@@ -130,6 +135,7 @@ namespace RFA.BLL.Concrete
                         break;
                     case (int)CompanionGalaType.Yes:
                         totalFee += 129.80;
+                        galaFee += 129.80;
                         break;
                 }
                 //PRE COURSE
@@ -140,6 +146,7 @@ namespace RFA.BLL.Concrete
                         break;
                     case (int)PreCourseTypeEnum.Yes:
                         totalFee += 271.40;
+                        courseFee += 271.40;
                         break;
                 }
                 //POST COURSE
@@ -150,9 +157,26 @@ namespace RFA.BLL.Concrete
                         break;
                     case (int)PostCourseTypeEnum.Yes:
                         totalFee += 271.40;
+                        courseFee += 271.40;
                         break;
                 }
 
+                if (dto.PreCourseType == (int)PreCourseTypeEnum.Yes || dto.PostCourseType == (int)PostCourseTypeEnum.Yes)
+                {
+                    totalFee -= 40.00;
+                    discount += 40.00;
+                }
+
+                var resultDto = new PaymentCalculatorResponseDto
+                {
+                    AccommodationFee = accommodationFee,
+                    CourseFee = courseFee,
+                    Discount = discount,
+                    GalaFee = galaFee,
+                    ParticipationFee = participationFee,
+                    Total = totalFee
+                };
+                return new SuccessDataResult<PaymentCalculatorResponseDto>(resultDto);
             }
             catch (Exception e)
             {
