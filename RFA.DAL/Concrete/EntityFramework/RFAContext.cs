@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RFA.ENTITY.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,11 @@ namespace RFA.DAL.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-PH12VSS;Database=CvCreator;User Id=DESKTOP-PH12VSS\mako; integrated security=true; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mahmut\source\repos\RegisterFormApplication-MVC\RFA.DAL\DB.mdf;Integrated Security=True");
 
         }
 
-        //public DbSet<User> Users { get; set; }
+        public DbSet<RegistrationInfo> RegistrationInfos { get; set; }
+        public DbSet<PaymentInfos> PaymentInfos { get; set; }
     }
 }

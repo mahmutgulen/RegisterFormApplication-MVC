@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Dto\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Enum\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +21,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RFA.CORE\RFA.CORE.csproj" />
   </ItemGroup>
 
 </Project>

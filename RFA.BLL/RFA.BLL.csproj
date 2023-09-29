@@ -26,4 +26,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RFA.CORE\RFA.CORE.csproj" />
+    <ProjectReference Include="..\RFA.DAL\RFA.DAL.csproj" />
+    <ProjectReference Include="..\RFA.ENTITY\RFA.ENTITY.csproj" />
+  </ItemGroup>
+
 </Project>
