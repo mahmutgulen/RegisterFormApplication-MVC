@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RFA.ENTITY.Concrete
 {
-    public class PaymentInfos : IEntity
+    public class PaymentInfo : IEntity
     {
         public int Id { get; set; }
         public int RegistrationInfoId { get; set; }
@@ -17,5 +17,6 @@ namespace RFA.ENTITY.Concrete
         public int CourseFee { get; set; }
         public int Discount { get; set; }
         public int Total { get; set; }
+
     }
 }

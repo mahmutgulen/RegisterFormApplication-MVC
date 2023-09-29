@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RFA.DAL.Abstract
 {
-    public interface IPaymentInfosDal : IEntityRepository<PaymentInfos>
+    public interface IPaymentInfosDal : IEntityRepository<PaymentInfo>
     {
     }
 }

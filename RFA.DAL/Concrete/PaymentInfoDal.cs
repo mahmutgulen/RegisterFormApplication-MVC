@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RFA.DAL.Concrete
 {
-    public class PaymentInfoDal : EfEntityRepositoryBase<PaymentInfos, RFAContext>, IPaymentInfosDal
+    public class PaymentInfoDal : EfEntityRepositoryBase<PaymentInfo, RFAContext>, IPaymentInfosDal
     {
     }
 }

@@ -22,7 +22,7 @@ namespace RFA.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RFA.ENTITY.Concrete.PaymentInfos", b =>
+            modelBuilder.Entity("RFA.ENTITY.Concrete.PaymentInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,22 +64,22 @@ namespace RFA.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<byte>("AccomodationType")
+                    b.Property<byte?>("AccomodationType")
                         .HasColumnType("tinyint");
 
-                    b.Property<DateTime>("CheckInDate")
+                    b.Property<DateTime?>("CheckInDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CheckOutDate")
+                    b.Property<DateTime?>("CheckOutDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Commitee")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("CompanionGalaType")
+                    b.Property<byte?>("CompanionGalaType")
                         .HasColumnType("tinyint");
 
-                    b.Property<byte>("CompanionType")
+                    b.Property<byte?>("CompanionType")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("CompoanionFullName")
@@ -94,7 +94,7 @@ namespace RFA.DAL.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("GalaType")
+                    b.Property<byte?>("GalaType")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("LastName")
@@ -103,13 +103,13 @@ namespace RFA.DAL.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("PostCourse")
+                    b.Property<byte?>("PostCourseType")
                         .HasColumnType("tinyint");
 
-                    b.Property<byte>("PreCourse")
+                    b.Property<byte?>("PreCourseType")
                         .HasColumnType("tinyint");
 
-                    b.Property<byte>("RegistrationType")
+                    b.Property<byte?>("RegistrationType")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("Title")

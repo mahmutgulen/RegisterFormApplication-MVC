@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RFA.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class first_migration : Migration
+    public partial class mako : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -43,16 +43,16 @@ namespace RFA.DAL.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RegistrationType = table.Column<byte>(type: "tinyint", nullable: false),
-                    GalaType = table.Column<byte>(type: "tinyint", nullable: false),
-                    AccomodationType = table.Column<byte>(type: "tinyint", nullable: false),
-                    PreCourse = table.Column<byte>(type: "tinyint", nullable: false),
-                    PostCourse = table.Column<byte>(type: "tinyint", nullable: false),
+                    RegistrationType = table.Column<byte>(type: "tinyint", nullable: true),
+                    GalaType = table.Column<byte>(type: "tinyint", nullable: true),
+                    AccomodationType = table.Column<byte>(type: "tinyint", nullable: true),
+                    PreCourseType = table.Column<byte>(type: "tinyint", nullable: true),
+                    PostCourseType = table.Column<byte>(type: "tinyint", nullable: true),
                     CompoanionFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CompanionType = table.Column<byte>(type: "tinyint", nullable: false),
-                    CompanionGalaType = table.Column<byte>(type: "tinyint", nullable: false),
-                    CheckInDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CheckOutDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CompanionType = table.Column<byte>(type: "tinyint", nullable: true),
+                    CompanionGalaType = table.Column<byte>(type: "tinyint", nullable: true),
+                    CheckInDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CheckOutDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
