@@ -214,7 +214,7 @@ namespace RFA.BLL.Concrete
             }
         }
 
-        public IDataResult<bool> UserCheck(string email, string phoneNumber)
+        public IDataResult<bool> UserCheck(string? email, string? phoneNumber)
         {
             try
             {
