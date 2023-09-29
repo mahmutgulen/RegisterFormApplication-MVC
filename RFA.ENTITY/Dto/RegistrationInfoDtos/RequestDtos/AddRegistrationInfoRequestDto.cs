@@ -24,7 +24,7 @@ namespace RFA.ENTITY.Dto.RegistrationInfoDtos.RequestDtos
         public string? CompoanionFullName { get; set; }
         public byte? CompanionType { get; set; }
         public byte? CompanionGalaType { get; set; }
-        public DateTime? CheckInDate { get; set; }
-        public DateTime? CheckOutDate { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
     }
 }

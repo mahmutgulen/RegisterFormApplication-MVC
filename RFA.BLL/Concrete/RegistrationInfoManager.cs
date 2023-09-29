@@ -20,10 +20,12 @@ namespace RFA.BLL.Concrete
     public class RegistrationInfoManager : IRegistrationInfoService
     {
         private IRegistrationInfoDal _registrationInfoDal;
+        private IPaymentInfoService _paymentInfoService;
 
-        public RegistrationInfoManager(IRegistrationInfoDal registrationInfoDal)
+        public RegistrationInfoManager(IRegistrationInfoDal registrationInfoDal, IPaymentInfoService paymentInfoService)
         {
             _registrationInfoDal = registrationInfoDal;
+            _paymentInfoService = paymentInfoService;
         }
 
         public IDataResult<bool> AddRegistrationInfo(AddRegistrationInfoRequestDto dto)
@@ -56,7 +58,35 @@ namespace RFA.BLL.Concrete
                     RegistrationType = dto.RegistrationType,
                     Title = dto.Title,
                 };
+                _registrationInfoDal.Add(newRegistration);
 
+                var paymentCalculatorDto = new PaymentCalculatorRequestDto
+                {
+                    AccommodationType = dto.AccomodationType,
+                    CheckInDate = dto.CheckInDate,
+                    CompanionGalaType = dto.CompanionGalaType,
+                    GalaType = dto.GalaType,
+                    CompanionType = dto.CompanionType,
+                    PostCourseType = dto.PostCourseType,
+                    PreCourseType = dto.PreCourseType,
+                    CheckOutDate = dto.CheckOutDate,
+                    RegistrationType = dto.RegistrationType
+                };
+
+                var paymentCalculator = PaymentCalculator(paymentCalculatorDto);
+
+                var newPayment = new AddPaymentInfoRequestDto
+                {
+                    AccommodationFee = (int?)paymentCalculator.Data.AccommodationFee,
+                    CourseFee = (int?)paymentCalculator.Data.CourseFee,
+                    Discount = (int?)paymentCalculator.Data.Discount,
+                    GalaFee = (int?)paymentCalculator.Data.GalaFee,
+                    ParticipationFee = (int?)paymentCalculator.Data.ParticipationFee,
+                    RegistrationInfoId = newRegistration.Id,
+                    Total = (int?)paymentCalculator.Data.Total
+                };
+
+                var addPayment = _paymentInfoService.AddPaymentInfo(newPayment);
                 return new SuccessDataResult<bool>(true, "registration_successfuly", Messages.registration_successfuly);
             }
             catch (Exception e)
