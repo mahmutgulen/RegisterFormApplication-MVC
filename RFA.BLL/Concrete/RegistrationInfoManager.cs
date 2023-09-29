@@ -7,9 +7,11 @@ using RFA.ENTITY.Concrete;
 using RFA.ENTITY.Dto.PaymentInfoDtos.RequestDtos;
 using RFA.ENTITY.Dto.PaymentInfoDtos.ResponseDtos;
 using RFA.ENTITY.Dto.RegistrationInfoDtos.RequestDtos;
+using RFA.ENTITY.Enum.RegistrationInfoEnums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,6 +69,41 @@ namespace RFA.BLL.Concrete
         {
             try
             {
+                double fee = 0;
+
+                //REGISTRATION TYPE
+                switch (dto.RegistrationType)
+                {
+                    case 1:
+                        fee = 519.20;
+                        break;
+                    case 2:
+                        fee = 678.50;
+                        break;
+                    case 3:
+                        fee = 584.10;
+                        break;
+                    case 4:
+                        fee = 247.80;
+                        break;
+                    case 5:
+                        fee = 413.00;
+                        break;
+                    case 6:
+                        fee = 224.20;
+                        break;
+                }
+                //GALA TYPE
+                switch (dto.GalaType)
+                {
+                    case (int)GalaTypeEnum.No:
+                        fee += 0;
+                        break;
+                    case (int)GalaTypeEnum.Yes:
+                        fee += 106.20;
+                        break;
+                }
+
 
             }
             catch (Exception e)
