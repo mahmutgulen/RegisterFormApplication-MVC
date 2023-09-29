@@ -15,8 +15,8 @@ namespace RFA.ENTITY.Concrete
         public byte RegistrationType{ get; set; }
         public byte GalaType{ get; set; }
         public byte AccomodationType{ get; set; }
-        public byte PreCourse{ get; set; }
-        public byte PostCourse{ get; set; }
+        public byte PreCourseType{ get; set; }
+        public byte PostCourseType{ get; set; }
         public string? CompoanionFullName { get; set; }
         public byte CompanionType { get; set; }
         public byte CompanionGalaType { get; set; }
