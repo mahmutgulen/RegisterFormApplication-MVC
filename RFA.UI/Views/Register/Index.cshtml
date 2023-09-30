@@ -9,6 +9,7 @@
                 </div>
 
                 <!-- PERSONAL INFOS -->
+                <form method="post">
                 <div class="row text-light mt-3 bg-secondary  mx-auto rounded-pill w-50 mx-auto">
                     <h6 class="text-center">Personal Infos</h6>
                 </div>
@@ -342,6 +343,14 @@
                         <option value="2">Congress Attendee</option>
                     </select>
                     <br />
+
+                    <select class="form-select shadow" id="" name="CompanionGalaType">
+                        <option selected="selected" value="">Companion Gala Type</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    <br />
+
                     <label class="">CheckIn Date</label><br />
                     <input type="date" name="CheckInDate" class="form-control w-50 shadow">
                     <br />
@@ -368,8 +377,9 @@
                 </div>
 
                 <div class="w-50 mx-auto mt-3 mb-5 d-flex">
-                    <a class="btn btn-warning w-50 rounded-pill mx-auto shadow">Complete</a>
+                    <button class="btn btn-warning w-50 rounded-pill mx-auto shadow">Complete</button>
                 </div>
+            </form>
             </div>
         </div>
 

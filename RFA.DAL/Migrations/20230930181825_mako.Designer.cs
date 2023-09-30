@@ -12,7 +12,7 @@ using RFA.DAL.Concrete.EntityFramework;
 namespace RFA.DAL.Migrations
 {
     [DbContext(typeof(RFAContext))]
-    [Migration("20230929101416_mako")]
+    [Migration("20230930181825_mako")]
     partial class mako
     {
         /// <inheritdoc />

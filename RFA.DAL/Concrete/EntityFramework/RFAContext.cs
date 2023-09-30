@@ -12,7 +12,7 @@ namespace RFA.DAL.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mahmut\Documents\rfaDB.mdf;Integrated Security=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mako\Documents\rfaDB.mdf;Integrated Security=True;");
 
         }
 

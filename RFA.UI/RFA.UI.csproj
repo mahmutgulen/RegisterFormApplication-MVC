@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RFA.BLL\RFA.BLL.csproj" />
+    <ProjectReference Include="..\RFA.ENTITY\RFA.ENTITY.csproj" />
   </ItemGroup>
 
 </Project>
